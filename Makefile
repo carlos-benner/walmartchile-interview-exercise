@@ -30,9 +30,9 @@ cb-remove-containers:
 	docker rm cb-frontend
 
 cb-remove-images: 
-	docker rmi $$(docker images -f reference=dockercompose_cb-frontend -q)
-	docker rmi $$(docker images -f reference=dockercompose_cb-api -q)
-	docker rmi $$(docker images -f reference=dockercompose_cb-mongodb -q)
+	docker rmi $$(docker images -f reference=*_cb-frontend -q)
+	docker rmi $$(docker images -f reference=*_cb-api -q)
+	docker rmi $$(docker images -f reference=*_cb-mongodb -q)
 
 cb-clear-images:
 	make cb-remove-repos -i 

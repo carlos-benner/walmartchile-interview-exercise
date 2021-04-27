@@ -23,7 +23,7 @@ You also need to be part of the docker group or run this with `sudo`
 
 ## Removing the exercise
 
-Just run `$ make cb-clear-containers` to
+Just run `$ make cb-clear-images` to
 
 -   Remove all repositories downloaded.
 -   Stop all docker containers created.

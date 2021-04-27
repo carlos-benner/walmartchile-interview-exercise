@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+    cb-mongodb:
+        container_name: cb-mongodb
+        build: ./cb-repos/database/
+        restart: always
+        expose: [27017]
+    cb-api:
+        container_name: cb-api
+        build: ./cb-repos/api
+        expose: [3050]
+        restart: always
+        links:
+            - cb-mongodb
+    cb-frontend:
+        container_name: cb-frontend
+        build: ./cb-repos/frontend
+        expose: [3000]
+        ports:
+            - '80:3000'
+        restart: always
+        links:
+            - cb-api

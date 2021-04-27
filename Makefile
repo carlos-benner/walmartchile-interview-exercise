@@ -7,6 +7,7 @@ cb-get-repos:
 cb-build-containers:
 	cp Dockerfile.db cb-repos/database/Dockerfile
 	docker-compose up -d
+	sleep 10
 	docker-compose exec cb-mongodb bash -c '/home/database/import.sh localhost /home'
 	sleep 10
 	docker-compose exec cb-api sh -c 'cd /usr/src/app && npm test'
